@@ -1,0 +1,70 @@
+---
+function titleToSlug(title: string) {
+  return title.toLowerCase().split(" ").join("-");
+}
+
+// console.log(titleToSlug("Pura Tanah Lot"));
+
+const destinations = [
+  {
+    title: "Pura Tanah Lot",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2014/10/pura-Tanah-Lot-610x453.jpg",
+  },
+  {
+    title: "Pantai Padang Padang",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2014/11/Pantai-Padang-Padang.jpg",
+  },
+  {
+    title: "Danau Beratan Bedugul",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Danau-Beratan-Bedugul.jpg",
+  },
+  {
+    title: "Pura Besakih",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Pura-Besakih.jpg",
+  },
+  {
+    title: "Monkey Forest",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2015/11/Ubud-Monkey-Forest.jpg",
+  },
+  {
+    title: "Pantai Kuta Bali",
+    imageUrl:
+      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Pantai-Kuta-610x458.jpg",
+  },
+];
+---
+
+<section id="discover" class="my-10">
+  <div class="text-center">
+    <h2 class="text-primary font-semibold text-xl">Top Destination</h2>
+    <h1 class="text-textGray font-bold text-2xl">Discover your love</h1>
+  </div>
+  <div class="grid grid-cols-3 gap-5">
+    {
+      destinations.map((destination) => {
+        return (
+          <div class="relative">
+            <img
+              class="aspect-video rounded-md"
+              src={destination.imageUrl}
+              alt={destination.title}
+            />
+
+            <a
+              href={"/posts/" + titleToSlug(destination.title)}
+              class="absolute w-4/6 rounded-md p-3 block bottom-0 backdrop-blur-sm bg-white/70"
+            >
+              <h1 class="text-primary font-bold">{destination.title}</h1>
+              <p class="text-textGray">Bali, Indonesia</p>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

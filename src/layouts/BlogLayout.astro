@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <main class="text-textGray my-10">
+    <Container>
+      <h1 class="text-center font-bold text-5xl">{frontmatter.title}</h1>
+      <img
+        class="w-full object-cover my-10 h-[500px]"
+        src={frontmatter.image.src}
+        alt={frontmatter.image.alt}
+      />
+      <slot />
+    </Container>
+  </main>
+</Layout>

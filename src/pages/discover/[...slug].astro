@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+
+export async function getStaticPaths() {
+  const pages = [
+    {
+      slug: "pura-tanah-lot",
+      title: "Pura Tanah Lot",
+      imgUrl:
+        "https://anekatempatwisata.com/wp-content/uploads/2014/10/pura-Tanah-Lot-610x453.jpg",
+      text1:
+        "Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. Pura Tanah Lot yang terdiri dari 2 buah pura merupakan pura tempat memuja dewa laut.",
+      text2:
+        "Keunikan utama dari Pura Tanah Lot adalah pura ini berada di atas sebuah batu karang besar di pinggir laut. Pada saat air laut pasang, kamu tidak dapat mendekat ke Pura Tanah Lot karena di sekitar batu karang penyangga Pura Tanah Lot akan digenangi air laut. Pada saat air surut kamu dapat melihat beberapa ular laut jinak yang menurut penduduk setempat merupakan penjaga Pura Tanah Lot. Selain itu, di lokasi tempat wisata di bali ini kamu juga dapat memegang ular suci yang jinak dan tidak berbahaya.",
+    },
+    {
+      slug: "pantai-padang-padang",
+      title: "Pantai Padang Padang",
+      imgUrl:
+        "https://anekatempatwisata.com/wp-content/uploads/2014/11/Pantai-Padang-Padang.jpg",
+      text1:
+        "Pantai Padang Padang adalah pantai kecil yang tersembunyi di balik sebuah tebing di kawasan Pecatu, dekat Uluwatu. Untuk dapat mencapai Pantai Padang Padang, kamu harus melewati sebuah tangga yang membelah tebing.",
+      text2:
+        "Pantai Padang Padang tidak besar dan luas, namun sangat indah dan menarik untuk dikunjungi. Sebagian besar pengunjung Pantai Padang Padang adalah wisatawan asing karena Pantai Padang Padang kurang terkenal di kalangan wisatawan dalam negeri.",
+    },
+    {
+      slug: "danau-beratan-bedugul",
+      title: "Danau Beratan Bedugul",
+      text1:
+        "Danau Beratan Bedugul adalah sebuah danau yang berlokasi di daerah pegunungan dengan suasana alam yang asri. Keunikan dari Danau Beratan Bedugul adalah keberadaan pura yang bernama Pura Ulun Danu.",
+
+      text2:
+        "Tempat wisata di bali – Pura Ulun Danu terletak di pinggir Danau Beratan Bedugul dan merupakan salah satu daya tarik utama Danau Beratan Bedugul. Selain itu, supaya liburan menjadi semakin berkesan, wisatawan juga dapat menikmati permainan air dan menyewa perahu di Danau Beratan Bedugul.",
+    },
+    {
+      slug: "pura-besakih",
+      title: "Pura Besakih",
+    },
+    {
+      slug: "monkey-forest",
+      title: "Monkey Forest",
+    },
+    {
+      slug: "pantai-kuta-bali",
+      title: "Pantai Kuta Bali",
+    },
+  ];
+
+  return pages.map(({ slug, title, imgUrl, text1, text2 }) => {
+    return {
+      params: { slug },
+      props: { title, imgUrl, text1, text2 },
+    };
+  });
+}
+
+const { title, text1, text2, imgUrl } = Astro.props;
+---
+
+<Layout title={title}>
+  <main>
+    <Container>
+      <h1 class="text-2xl">{title}</h1>
+      <p>Bali, Indonesia</p>
+      <img class="w-full object-cover h-[500px]" src={imgUrl} alt=" " />
+      <p>{text1}</p>
+      <p>{text2}</p>
+    </Container>
+  </main>
+</Layout>

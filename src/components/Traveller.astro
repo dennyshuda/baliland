@@ -1,0 +1,47 @@
+---
+const features = [
+  {
+    number: 100,
+    title: "Holiday Package",
+  },
+  {
+    number: 172,
+    title: "Hotels",
+  },
+  {
+    number: 68,
+    title: "Transportation",
+  },
+  {
+    number: 100,
+    title: "Dream places",
+  },
+];
+---
+
+<section class="flex items-center gap-5 py-5">
+  <div class="w-1/2">
+    <img class="w-full" src="./Traveller.png" alt="" srcset="" />
+  </div>
+  <div class="w-1/2 text-textGray space-y-3">
+    <h3 class="text-primary text-xl font-semibold">Travellers Point</h3>
+    <h2 class="text-3xl font-bold">We help to find your dream place</h2>
+    <p>
+      Bali Land keeps you updated regarding new vacation spots in Indonesia,
+      especially Bali, by following the developments of influencers on social
+      media ✨
+    </p>
+    <div class="grid grid-cols-2">
+      {
+        features.map((feature) => {
+          return (
+            <div>
+              <h2 class="text-primary font-bold text-xl">{feature.number}+</h2>
+              <p>{feature.title}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
