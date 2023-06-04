@@ -9,8 +9,10 @@ const teams = [
 ---
 
 <section class="text-textGray">
-  <section class="flex gap-10 justify-between items-center">
-    <div class="w-3/5">
+  <section
+    class="flex flex-col md:flex-row gap-10 justify-between items-center"
+  >
+    <div class="md:w-3/5 order-2 md:order-none">
       <h1 class="font-semibold text-2xl">About BaliLand</h1>
       <div class="text-justify space-y-5">
         <p>
@@ -60,12 +62,14 @@ const teams = [
         </p>
       </div>
     </div>
-    <div class="w-2/5"><img src="./about.png" alt="About Banner" /></div>
+    <div class="md:w-2/5 order-1 md:order-none">
+      <img src="./about.png" alt="About Banner" />
+    </div>
   </section>
   <section class="my-10">
     <h1 class="font-bold text-xl">Our Teams</h1>
     <p>Meet our great people</p>
-    <div class="grid grid-cols-5 gap-3 my-7">
+    <div class="grid md:grid-cols-3 xl:grid-cols-5 justify-center gap-3 my-7">
       {
         teams.map((team) => {
           return (
@@ -83,7 +87,7 @@ const teams = [
       }
     </div>
   </section>
-  <section class="grid grid-cols-2 md:grid-cols-4">
+  <section class="grid md:grid-cols-2 justify-center lg:grid-cols-4">
     <svg
       width="280"
       height="282"

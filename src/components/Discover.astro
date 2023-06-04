@@ -10,7 +10,7 @@ const topDestination = destinations.filter((destination) => destination.top);
     <h2 class="text-primary font-semibold text-xl">Top Destination</h2>
     <h1 class="text-textGray font-bold text-2xl">Discover your love</h1>
   </div>
-  <div class="grid grid-cols-3 gap-5">
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
     {
       topDestination.map((destination) => {
         return <Card title={destination.title} imgUrl={destination.imageUrl} />;
