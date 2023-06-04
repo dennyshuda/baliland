@@ -1,70 +1,43 @@
 ---
-function titleToSlug(title: string) {
-  return title.toLowerCase().split(" ").join("-");
-}
+import { destinations } from "../data";
+import Card from "./Card.astro";
 
-// console.log(titleToSlug("Pura Tanah Lot"));
-
-const destinations = [
-  {
-    title: "Pura Tanah Lot",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2014/10/pura-Tanah-Lot-610x453.jpg",
-  },
-  {
-    title: "Pantai Padang Padang",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2014/11/Pantai-Padang-Padang.jpg",
-  },
-  {
-    title: "Danau Beratan Bedugul",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Danau-Beratan-Bedugul.jpg",
-  },
-  {
-    title: "Pura Besakih",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Pura-Besakih.jpg",
-  },
-  {
-    title: "Monkey Forest",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2015/11/Ubud-Monkey-Forest.jpg",
-  },
-  {
-    title: "Pantai Kuta Bali",
-    imageUrl:
-      "https://anekatempatwisata.com/wp-content/uploads/2014/03/Pantai-Kuta-610x458.jpg",
-  },
-];
+const topDestination = destinations.filter((destination) => destination.top);
 ---
 
-<section id="discover" class="my-10">
+<section id="discover" class="my-10 space-y-10">
   <div class="text-center">
     <h2 class="text-primary font-semibold text-xl">Top Destination</h2>
     <h1 class="text-textGray font-bold text-2xl">Discover your love</h1>
   </div>
   <div class="grid grid-cols-3 gap-5">
     {
-      destinations.map((destination) => {
-        return (
-          <div class="relative">
-            <img
-              class="aspect-video rounded-md"
-              src={destination.imageUrl}
-              alt={destination.title}
-            />
-
-            <a
-              href={"/posts/" + titleToSlug(destination.title)}
-              class="absolute w-4/6 rounded-md p-3 block bottom-0 backdrop-blur-sm bg-white/70"
-            >
-              <h1 class="text-primary font-bold">{destination.title}</h1>
-              <p class="text-textGray">Bali, Indonesia</p>
-            </a>
-          </div>
-        );
+      topDestination.map((destination) => {
+        return <Card title={destination.title} imgUrl={destination.imageUrl} />;
       })
     }
+  </div>
+  <div class="text-center">
+    <!-- <a
+      class="bg-secondary text-lg font-semibold text-white rounded-lg py-3 px-10"
+      href="/discover">More Places</a
+    > -->
+    <a class="group relative" href="/discover">
+      <svg
+        class="w-10 inline duration-100 hover:rotate-45"
+        viewBox="0 0 1024 1024"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 0C229.232 0 0 229.232 0 512C0 794.784 229.232 1024 512 1024C794.784 1024 1024 794.784 1024 512C1024 229.232 794.784 0 512 0ZM512 961.008C264.976 961.008 64 759.024 64 511.998C64 264.974 264.976 63.998 512 63.998C759.024 63.998 960 264.975 960 511.998C960 759.021 759.024 961.008 512 961.008ZM736 480H544V288C544 270.336 529.664 256 512 256C494.336 256 480 270.336 480 288V480H288C270.336 480 256 494.336 256 512C256 529.664 270.336 544 288 544H480V736C480 753.664 494.336 768 512 768C529.664 768 544 753.664 544 736V544H736C753.664 544 768 529.664 768 512C768 494.336 753.664 480 736 480Z"
+          fill="#295943"></path>
+      </svg>
+      <p
+        class="group-hover:block text-center absolute -top-14 right-[50%] translate-x-[50%] rounded-md hidden text-white py-2 px-4 bg-primary font-semibold"
+      >
+        More
+      </p>
+    </a>
   </div>
 </section>
