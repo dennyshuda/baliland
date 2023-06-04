@@ -16,7 +16,7 @@ const { image, title, comments } = frontmatter;
       />
       <slot />
       <div class="my-5">
-        <h1 class="font-bold text-2xl">Comment ({comments.length})</h1>
+        <h1 class="font-bold text-2xl">Comments ({comments.length})</h1>
         <div id="commentBox">
           {
             comments.map((comment: any) => {
