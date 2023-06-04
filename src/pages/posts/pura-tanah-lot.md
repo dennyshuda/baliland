@@ -7,6 +7,11 @@ image:
     src: "https://anekatempatwisata.com/wp-content/uploads/2014/10/pura-Tanah-Lot-610x453.jpg",
     alt: "Pura Tanah Lot",
   }
+comments:
+  [
+    { name: "Denny Setyawan Huda", text: "Wow!!! Beautiful places" },
+    { name: "Umar Syahroni", text: "Oh My God So cool!!!" },
+  ]
 description: Find out what makes Astro awesome!
 ---
 
