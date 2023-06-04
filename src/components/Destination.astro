@@ -1,0 +1,17 @@
+---
+import { destinations } from "../data";
+import Card from "./Card.astro";
+---
+
+<section class="space-y-10">
+  <div class="text-center">
+    <h1 class="font-bold text-3xl text-textGray">Find Your Favorite Places</h1>
+  </div>
+  <div class="grid grid-cols-3 gap-5">
+    {
+      destinations.map((place) => {
+        return <Card title={place.title} imgUrl={place.imageUrl} />;
+      })
+    }
+  </div>
+</section>
